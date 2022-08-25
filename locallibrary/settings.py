@@ -29,7 +29,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'hlonfyr^eoo_zm!4$(3q+lv!$@&vr+
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'tranquil-ridge-95730.herokuapp.com',
+]
 
 
 # Application definition
