@@ -14,5 +14,5 @@ jobs:
       - name: RENAME VARIABLE
         run: |
           jsonStr='{ "key1": "value1", "key2": "value2", "key3": "value3" }'
-          jq '.key1 = "new-value1"' <<<"$jsonStr"
+          jq '.key1 = "new-value1"' > "$jsonStr"
           echo "${jsonStr}"
