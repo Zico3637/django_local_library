@@ -6,7 +6,7 @@ on:
     
 jobs:
   Explore-GitHub-Actions:
-    if: startsWith(github.event.pull_request.title, "[Update][XXX]")
+    if: startsWith(github.event.pull_request.title, '[Update][XXX]')
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
