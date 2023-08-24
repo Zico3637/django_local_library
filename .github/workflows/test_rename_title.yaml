@@ -8,6 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
-        id: rename_pr_title
+        id: get_context
         with:
           script: console.log(context)
+
+      - uses: actions/github-script@v6
+        id: rename_pr_title
+        with:
+          script: |
+            github.rest.issues.get({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
