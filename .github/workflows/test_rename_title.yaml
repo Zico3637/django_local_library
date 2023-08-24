@@ -17,9 +17,10 @@ jobs:
         id: rename_pr_title
         with:
           script: |
+            const title=${"ABC XYZ New Title 2"/"ABC"/"F${{steps.run_tests.outputs.ABC}}"}
             github.rest.pulls.update({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.payload.pull_request.number,
-              title: ${"ABC XYZ New Title 2"/"ABC"/"F${{steps.run_tests.outputs.ABC}}"},
+              title: title,
             })
