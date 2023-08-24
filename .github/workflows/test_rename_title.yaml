@@ -12,12 +12,13 @@ jobs:
         run: |
           echo "ABC=ABC" >> $GITHUB_OUTPUT
           echo "XYZ=XYZ" >> $GITHUB_OUTPUT
+          echo "JIRA_TICKET_SUMMARY=ABC-XYZ-111" >> "$GITHUB_ENV"
           
       - uses: actions/github-script@v6
         id: rename_pr_title
         with:
           script: |
-            const title=echo ${"ABC XYZ New Title 2"/"ABC"/"F${{steps.run_tests.outputs.ABC}}"}
+            const title=${{env.JIRA_TICKET_SUMMARY}}.replace("ABC", F${{steps.run_tests.outputs.ABC}}")
             console.log(title)
             github.rest.pulls.update({
               owner: context.repo.owner,
