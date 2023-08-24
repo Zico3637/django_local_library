@@ -19,5 +19,6 @@ jobs:
             github.rest.pulls.update({
               owner: context.repo.owner,
               repo: context.repo.repo,
+              pull_number: 2,
               title: "New Title",
             })
