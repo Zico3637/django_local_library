@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: octokit/request-action@v2.x
-        id: rename PR title
+        id: rename_pr_title
         with:
           route: POST /repos/Zico3637/django_local_library/pull/2
           title: New title
