@@ -16,8 +16,9 @@ jobs:
         id: rename_pr_title
         with:
           script: |
-            github.rest.issues.get({
+            github.rest.issues.post({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
+              title: "New Title",
             })
