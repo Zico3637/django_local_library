@@ -17,7 +17,7 @@ jobs:
         id: rename_pr_title
         with:
           script: |
-            const title='echo ${"ABC XYZ New Title 2"/"ABC"/"F${{steps.run_tests.outputs.ABC}}"}'
+            const title=echo ${"ABC XYZ New Title 2"/"ABC"/"F${{steps.run_tests.outputs.ABC}}"}
             console.log(title)
             github.rest.pulls.update({
               owner: context.repo.owner,
