@@ -7,12 +7,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: RENAME TITLE
-        run: |
-          jq '.event.pull_request.title = "OH YEAH"' <<<"$github"
-          echo "${{ github.event.pull_request.title }}"
-      - name: RENAME VARIABLE
-        run: |
-          jsonStr='{ "key1": "value1", "key2": "value2", "key3": "value3" }'
-          jq '.key1 = "new-value1"' "$jsonStr"
-          echo "${jsonStr}"
+      - uses: octokit/request-action@v2.x
+        id: rename PR title
+        with:
+          route: POST /repos/Zico3637/django_local_library/pull/2
+          title: New title
