@@ -12,3 +12,5 @@ jobs:
         with:
           route: POST /repos/Zico3637/django_local_library/pull/2
           title: New title
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
