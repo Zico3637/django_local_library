@@ -19,7 +19,7 @@ jobs:
         with:
           script: |
             const oldTitle = "${{env.JIRA_TICKET_SUMMARY}}"
-            const title = oldTitle.replace("ABC", F${{steps.run_tests.outputs.ABC}}")
+            const title = oldTitle.replace("ABC", "F${{steps.run_tests.outputs.ABC}}")
             console.log(title)
             github.rest.pulls.update({
               owner: context.repo.owner,
