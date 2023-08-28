@@ -2,6 +2,8 @@ name: Rename Title
 
 on:
   pull_request:
+    types:
+      - opened
     branches:
       - 'feature/renovate-*'
     
