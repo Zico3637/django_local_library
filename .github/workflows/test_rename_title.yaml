@@ -1,7 +1,9 @@
 name: Rename Title
 
 on:
-  pull_request:
+  pull_request_target:
+    branches:
+      - 'test-ci-again'
     
 jobs:
   Explore-GitHub-Actions:
