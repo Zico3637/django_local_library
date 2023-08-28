@@ -1,0 +1,31 @@
+name: Rename Title
+
+on:
+  pull_request_target:
+    branches:
+      - 'test-ci-again'
+    
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        id: run_tests
+        run: |
+          echo "ABC=ABC" >> $GITHUB_OUTPUT
+          echo "XYZ=XYZ" >> $GITHUB_OUTPUT
+          echo "JIRA_TICKET_SUMMARY=ABC-XYZ-111" >> "$GITHUB_ENV"
+          
+      - uses: actions/github-script@v6
+        id: rename_pr_title
+        with:
+          script: |
+            const oldTitle = "${{env.JIRA_TICKET_SUMMARY}}"
+            const title = oldTitle.replace("ABC", "F${{steps.run_tests.outputs.ABC}}")
+            console.log(title)
+            github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              title: title,
+            })
