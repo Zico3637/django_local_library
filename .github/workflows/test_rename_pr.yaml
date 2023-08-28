@@ -1,7 +1,7 @@
 name: Rename Title
 
 on:
-  pull_request:
+  push:
     branches:
       - 'feature/renovate-*'
     
