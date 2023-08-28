@@ -3,7 +3,7 @@ name: Rename Title
 on:
   pull_request_target:
     branches:
-      - 'feature/renovate-**'
+      - 'feature/renovate-*'
     
 jobs:
   Explore-GitHub-Actions:
